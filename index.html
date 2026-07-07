@@ -25,6 +25,12 @@
     overflow-x:hidden;
   }
 
+  /* ===== רמז דק למאפייה: מאפינס ונקודות קמח ברקע ===== */
+  .bakery-bg{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='%231B1B1B' stroke-width='2.5' opacity='0.055'%3E%3Cpath d='M40 60 q-14 0 -14 -12 q0 -10 9 -12 q1 -12 15 -12 q14 0 15 12 q9 2 9 12 q0 12 -14 12 z'/%3E%3Cpath d='M40 60 l-4 22 q0 5 14 5 q14 0 14 -5 l-4 -22'/%3E%3Cpath d='M42 62 l-2 22 M58 62 l2 22 M50 63 l0 23'/%3E%3Cpath d='M185 190 q-14 0 -14 -12 q0 -10 9 -12 q1 -12 15 -12 q14 0 15 12 q9 2 9 12 q0 12 -14 12 z' transform='rotate(12 195 175)'/%3E%3Cpath d='M185 190 l-4 22 q0 5 14 5 q14 0 14 -5 l-4 -22' transform='rotate(12 195 175)'/%3E%3C/g%3E%3Cg fill='%231B1B1B' opacity='0.05'%3E%3Ccircle cx='120' cy='40' r='2.5'/%3E%3Ccircle cx='210' cy='75' r='2'/%3E%3Ccircle cx='75' cy='150' r='2'/%3E%3Ccircle cx='150' cy='120' r='1.5'/%3E%3Ccircle cx='30' cy='215' r='2.5'/%3E%3Ccircle cx='110' cy='235' r='2'/%3E%3Ccircle cx='240' cy='150' r='1.5'/%3E%3Ccircle cx='170' cy='20' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
+    background-size:260px 260px;
+  }
+
   /* ===== marquee ===== */
   .marquee{
     background:var(--ink);
@@ -198,7 +204,7 @@
   </div>
 </div>
 
-<header class="hero">
+<header class="hero bakery-bg">
   <div class="sticker sticker--a">חד־פעמי. או לא.</div>
   <div class="sticker sticker--b">100% נונסנס מקורי</div>
 
@@ -231,7 +237,7 @@
   </div>
 </section>
 
-<section class="maybe">
+<section class="maybe bakery-bg">
   <div class="wrap">
     <h2 class="sec-title">מה אולי יקרה בהופעה</h2>
     <div class="maybe__grid">
