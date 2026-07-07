@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שרגא מאפין — הופעה. כנראה.</title>
+<meta name="description" content="שרגא מאפין בהופעת נונסנס חד־פעמית. אף אחד לא יודע מה יקרה. גם לא שרגא.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yellow:#FFD23F;
+    --ink:#1B1B1B;
+    --pink:#FF4D9D;
+    --blue:#2D6CDF;
+    --paper:#FFF6DE;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Rubik',sans-serif;
+    background:var(--yellow);
+    color:var(--ink);
+    overflow-x:hidden;
+  }
+
+  /* ===== marquee ===== */
+  .marquee{
+    background:var(--ink);
+    color:var(--yellow);
+    white-space:nowrap;
+    overflow:hidden;
+    padding:10px 0;
+    font-weight:700;
+    font-size:15px;
+    border-bottom:4px solid var(--ink);
+  }
+  .marquee__inner{
+    display:inline-block;
+    animation:scroll 28s linear infinite;
+    padding-right:100%;
+  }
+  @keyframes scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(100%);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .marquee__inner{animation:none;padding-right:0;}
+  }
+
+  /* ===== hero ===== */
+  .hero{
+    min-height:88vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:48px 20px 64px;
+    position:relative;
+  }
+  .hero__eyebrow{
+    font-weight:700;
+    font-size:16px;
+    letter-spacing:.06em;
+    background:var(--ink);
+    color:var(--paper);
+    padding:6px 16px;
+    transform:rotate(-2deg);
+    margin-bottom:20px;
+  }
+  .hero__title{
+    font-family:'Karantina',cursive;
+    font-weight:700;
+    font-size:clamp(84px,18vw,220px);
+    line-height:.85;
+    letter-spacing:.01em;
+  }
+  .hero__title span{
+    display:block;
+    color:var(--pink);
+    -webkit-text-stroke:3px var(--ink);
+    text-stroke:3px var(--ink);
+  }
+  .hero__sub{
+    font-size:clamp(18px,3vw,26px);
+    font-weight:500;
+    max-width:560px;
+    margin:26px auto 8px;
+  }
+  .hero__flip{
+    display:inline-block;
+    min-width:220px;
+    font-weight:900;
+    background:var(--paper);
+    border:3px solid var(--ink);
+    box-shadow:5px 5px 0 var(--ink);
+    padding:8px 18px;
+    margin-top:14px;
+    transform:rotate(1.5deg);
+    font-size:clamp(17px,2.6vw,22px);
+  }
+  .cta{
+    display:inline-block;
+    margin-top:38px;
+    background:var(--pink);
+    color:var(--ink);
+    font-weight:900;
+    font-size:clamp(20px,3vw,26px);
+    text-decoration:none;
+    padding:18px 46px;
+    border:4px solid var(--ink);
+    box-shadow:8px 8px 0 var(--ink);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .cta:hover, .cta:focus-visible{
+    transform:translate(-3px,3px);
+    box-shadow:4px 4px 0 var(--ink);
+  }
+  .cta:focus-visible{outline:3px dashed var(--blue);outline-offset:4px;}
+  .cta small{display:block;font-size:13px;font-weight:500;margin-top:2px;}
+
+  .sticker{
+    position:absolute;
+    background:var(--blue);
+    color:#fff;
+    font-weight:700;
+    font-size:14px;
+    padding:8px 14px;
+    border:3px solid var(--ink);
+    box-shadow:4px 4px 0 var(--ink);
+  }
+  .sticker--a{top:9%;right:6%;transform:rotate(8deg);}
+  .sticker--b{bottom:12%;left:5%;transform:rotate(-6deg);background:var(--paper);color:var(--ink);}
+  @media (max-width:640px){
+    .sticker--a{top:4%;right:3%;font-size:12px;}
+    .sticker--b{bottom:5%;left:3%;font-size:12px;}
+  }
+
+  /* ===== sections ===== */
+  section{padding:72px 20px;}
+  .wrap{max-width:860px;margin:0 auto;}
+  .sec-title{
+    font-family:'Karantina',cursive;
+    font-weight:700;
+    font-size:clamp(48px,8vw,84px);
+    line-height:.9;
+    margin-bottom:28px;
+  }
+
+  .about{background:var(--paper);border-top:4px solid var(--ink);border-bottom:4px solid var(--ink);}
+  .about p{font-size:clamp(17px,2.4vw,20px);line-height:1.7;margin-bottom:16px;}
+  .about strong{background:var(--yellow);padding:0 6px;}
+
+  /* ===== maybe list ===== */
+  .maybe{background:var(--yellow);}
+  .maybe__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+  .card{
+    background:var(--paper);
+    border:3px solid var(--ink);
+    box-shadow:6px 6px 0 var(--ink);
+    padding:22px 20px;
+    font-weight:500;
+    font-size:17px;
+    line-height:1.5;
+  }
+  .card b{display:block;font-size:22px;font-weight:900;margin-bottom:6px;}
+  .card:nth-child(odd){transform:rotate(-1deg);}
+  .card:nth-child(even){transform:rotate(1.2deg);}
+  .maybe__note{margin-top:26px;font-size:15px;font-weight:500;text-align:center;}
+
+  /* ===== details ===== */
+  .details{background:var(--ink);color:var(--paper);}
+  .details .sec-title{color:var(--yellow);}
+  .details__row{
+    display:flex;flex-wrap:wrap;gap:14px 40px;
+    font-size:clamp(18px,2.6vw,24px);font-weight:700;
+    margin-bottom:34px;
+  }
+  .details__row span{border-bottom:3px solid var(--pink);padding-bottom:4px;}
+  .details .cta{background:var(--yellow);}
+
+  /* ===== footer ===== */
+  footer{
+    background:var(--ink);color:#9a9a9a;
+    font-size:12.5px;line-height:1.8;
+    padding:28px 20px 40px;text-align:center;
+    border-top:2px dashed #555;
+  }
+</style>
+</head>
+<body>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__inner">
+    שרגא מאפין ★ אולי יקרה משהו ★ אולי לא ★ הכניסה על אחריותכם ★ הצחוק לא מובטח אבל סביר ★ אין החזרים על מבוכה ★ שרגא מאפין ★ מה זה בכלל ★ תבואו תגלו ★
+  </div>
+</div>
+
+<header class="hero">
+  <div class="sticker sticker--a">חד־פעמי. או לא.</div>
+  <div class="sticker sticker--b">100% נונסנס מקורי</div>
+
+  <div class="hero__eyebrow">ערב אחד. אפס תוכנית.</div>
+
+  <h1 class="hero__title">
+    שרגא
+    <span>מאפין</span>
+  </h1>
+
+  <p class="hero__sub">
+    הופעת נונסנס שאף אחד לא יודע מה הולך לקרות בה.
+    כולל שרגא.
+  </p>
+
+  <div class="hero__flip" id="flip" aria-live="polite">יהיה בסדר. כנראה.</div>
+
+  <a class="cta" href="#tickets">
+    אני בפנים
+    <small>(מה שזה לא אומר)</small>
+  </a>
+</header>
+
+<section class="about">
+  <div class="wrap">
+    <h2 class="sec-title">מי זה שרגא מאפין?</h2>
+    <p>שאלה מצוינת. <strong>גם אנחנו לא בטוחים.</strong></p>
+    <p>מה שידוע: זו הופעה. יש במה. יש קהל (אתם). יש שרגא. מה יקרה כשכל אלה נפגשים באותו חדר — זו בדיוק הסיבה שמוכרים כרטיסים.</p>
+    <p>אין תסריט. אין רשת ביטחון. יש תקווה כנה שיהיה מצחיק, ונכונות מלאה לקחת את הסיכון ביחד איתכם.</p>
+  </div>
+</section>
+
+<section class="maybe">
+  <div class="wrap">
+    <h2 class="sec-title">מה אולי יקרה בהופעה</h2>
+    <div class="maybe__grid">
+      <div class="card"><b>אולי שיר</b>אולי חצי שיר. אולי רק פזמון שנתקע ולא ירד.</div>
+      <div class="card"><b>אולי קטע קהל</b>אם אתם יושבים בשורה הראשונה, זו הייתה החלטה שלכם.</div>
+      <div class="card"><b>אולי רגע מרגש</b>סתם. או שלא סתם. תלוי איך ילך.</div>
+      <div class="card"><b>אולי הפסקה</b>גם שרגא צריך לעכל את מה שקרה.</div>
+      <div class="card"><b>אולי משהו עם חפץ</b>יש חפץ. לא נגיד איזה. הוא מוכן.</div>
+      <div class="card"><b>אולי סוף</b>בשלב מסוים ההופעה תיגמר. גם על זה אין התחייבות מלאה.</div>
+    </div>
+    <p class="maybe__note">* הרשימה נכונה לרגע כתיבתה. שרגא שומר לעצמו את הזכות להתחרט על הכול.</p>
+  </div>
+</section>
+
+<section class="details" id="tickets">
+  <div class="wrap">
+    <h2 class="sec-title">הפרטים היבשים</h2>
+    <div class="details__row">
+      <span>📅 תאריך: בקרוב</span>
+      <span>📍 מיקום: יעודכן</span>
+      <span>🕗 שעה: 20:30 בערך</span>
+    </div>
+    <a class="cta" href="#" onclick="alert('כאן ייכנס קישור לרכישת כרטיסים 🎟️'); return false;">
+      לכרטיסים
+      <small>לפני ששרגא מתחרט</small>
+    </a>
+  </div>
+</section>
+
+<footer>
+  ההנהלה אינה אחראית לצחוק, לחוסר צחוק, למבוכה, לחיבור רגשי בלתי צפוי לשרגא, או לצורך לספר על זה לחברים למחרת.<br>
+  © שרגא מאפין. כל הזכויות שמורות. חלקן הושאלו.
+</footer>
+
+<script>
+  const lines = [
+    "יהיה בסדר. כנראה.",
+    "יש תוכנית. היא סודית. גם משרגא.",
+    "מצחיק? נקווה. ביחד.",
+    "אף בדיחה לא נפגעה. עדיין.",
+    "הכרטיס לא כולל הסברים.",
+    "שרגא כבר בדרך. לאנשהו."
+  ];
+  const flip = document.getElementById('flip');
+  let i = 0;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced) {
+    setInterval(() => {
+      i = (i + 1) % lines.length;
+      flip.textContent = lines[i];
+    }, 2600);
+  }
+</script>
+
+</body>
+</html>
