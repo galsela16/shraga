@@ -25,10 +25,25 @@
     overflow-x:hidden;
   }
 
-  /* ===== רמז דק למאפייה: מאפינס ונקודות קמח ברקע ===== */
+  /* ===== רמז דק למאפייה: מאפינס, קרואסונים, שיבולים וקמח ===== */
   .bakery-bg{
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='%231B1B1B' stroke-width='2.5' opacity='0.055'%3E%3Cpath d='M40 60 q-14 0 -14 -12 q0 -10 9 -12 q1 -12 15 -12 q14 0 15 12 q9 2 9 12 q0 12 -14 12 z'/%3E%3Cpath d='M40 60 l-4 22 q0 5 14 5 q14 0 14 -5 l-4 -22'/%3E%3Cpath d='M42 62 l-2 22 M58 62 l2 22 M50 63 l0 23'/%3E%3Cpath d='M185 190 q-14 0 -14 -12 q0 -10 9 -12 q1 -12 15 -12 q14 0 15 12 q9 2 9 12 q0 12 -14 12 z' transform='rotate(12 195 175)'/%3E%3Cpath d='M185 190 l-4 22 q0 5 14 5 q14 0 14 -5 l-4 -22' transform='rotate(12 195 175)'/%3E%3C/g%3E%3Cg fill='%231B1B1B' opacity='0.05'%3E%3Ccircle cx='120' cy='40' r='2.5'/%3E%3Ccircle cx='210' cy='75' r='2'/%3E%3Ccircle cx='75' cy='150' r='2'/%3E%3Ccircle cx='150' cy='120' r='1.5'/%3E%3Ccircle cx='30' cy='215' r='2.5'/%3E%3Ccircle cx='110' cy='235' r='2'/%3E%3Ccircle cx='240' cy='150' r='1.5'/%3E%3Ccircle cx='170' cy='20' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
-    background-size:260px 260px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='340' viewBox='0 0 340 340'%3E%3Cg fill='none' stroke='%231B1B1B' stroke-width='2.5' opacity='0.06'%3E%3Cpath d='M40 60 q-14 0 -14 -12 q0 -10 9 -12 q1 -12 15 -12 q14 0 15 12 q9 2 9 12 q0 12 -14 12 z'/%3E%3Cpath d='M40 60 l-4 22 q0 5 14 5 q14 0 14 -5 l-4 -22'/%3E%3Cpath d='M42 62 l-2 22 M58 62 l2 22 M50 63 l0 23'/%3E%3Cpath d='M235 250 q-14 0 -14 -12 q0 -10 9 -12 q1 -12 15 -12 q14 0 15 12 q9 2 9 12 q0 12 -14 12 z' transform='rotate(12 245 235)'/%3E%3Cpath d='M235 250 l-4 22 q0 5 14 5 q14 0 14 -5 l-4 -22' transform='rotate(12 245 235)'/%3E%3Cpath d='M180 80 q30 -25 55 -5 q-8 4 -14 3 q4 8 -1 14 q-7 -2 -11 -8 q-2 10 -10 13 q-4 -8 -2 -15 q-9 4 -17 -2 z' transform='rotate(-15 205 80)'/%3E%3Cg transform='translate(80,230) rotate(-8)'%3E%3Cpath d='M0 70 l0 -55'/%3E%3Cpath d='M0 18 q-10 -3 -12 -14 q11 1 12 14 z M0 18 q10 -3 12 -14 q-11 1 -12 14 z M0 32 q-10 -3 -12 -14 q11 1 12 14 z M0 32 q10 -3 12 -14 q-11 1 -12 14 z M0 46 q-10 -3 -12 -14 q11 1 12 14 z M0 46 q10 -3 12 -14 q-11 1 -12 14 z M0 4 q-2 -8 0 -12 q2 4 0 12 z'/%3E%3C/g%3E%3C/g%3E%3Cg fill='%231B1B1B' opacity='0.05'%3E%3Ccircle cx='150' cy='40' r='2.5'/%3E%3Ccircle cx='280' cy='95' r='2'/%3E%3Ccircle cx='55' cy='170' r='2'/%3E%3Ccircle cx='190' cy='160' r='1.5'/%3E%3Ccircle cx='30' cy='295' r='2.5'/%3E%3Ccircle cx='150' cy='310' r='2'/%3E%3Ccircle cx='310' cy='200' r='1.5'/%3E%3Ccircle cx='230' cy='25' r='1.5'/%3E%3Ccircle cx='300' cy='320' r='2'/%3E%3C/g%3E%3C/svg%3E");
+    background-size:340px 340px;
+  }
+
+  /* שיבולים גדולות בצידי הכותרת — כמו על קיר של מאפייה */
+  .wheat{
+    position:absolute;
+    width:clamp(60px,9vw,120px);
+    opacity:.14;
+    pointer-events:none;
+  }
+  .wheat--r{top:16%;right:3%;transform:rotate(10deg);}
+  .wheat--l{top:16%;left:3%;transform:rotate(-10deg) scaleX(-1);}
+  @media (max-width:640px){
+    .wheat{opacity:.1;width:52px;}
+    .wheat--r{top:22%;right:1%;}
+    .wheat--l{top:22%;left:1%;}
   }
 
   /* ===== marquee ===== */
@@ -88,6 +103,11 @@
     color:var(--pink);
     -webkit-text-stroke:3px var(--ink);
     text-stroke:3px var(--ink);
+  }
+  .hero__table{
+    width:min(560px,86vw);
+    display:block;
+    margin:-6px auto 0;
   }
   .hero__sub{
     font-size:clamp(18px,3vw,26px);
@@ -205,6 +225,26 @@
 </div>
 
 <header class="hero bakery-bg">
+  <svg class="wheat wheat--r" viewBox="0 0 60 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke="#1B1B1B" stroke-width="3" stroke-linecap="round">
+      <path d="M30 155 L30 30"/>
+      <path d="M30 30 q-3 -14 0 -24 q3 10 0 24"/>
+      <path d="M30 45 q-16 -4 -20 -22 q17 3 20 22 M30 45 q16 -4 20 -22 q-17 3 -20 22"/>
+      <path d="M30 68 q-16 -4 -20 -22 q17 3 20 22 M30 68 q16 -4 20 -22 q-17 3 -20 22"/>
+      <path d="M30 91 q-16 -4 -20 -22 q17 3 20 22 M30 91 q16 -4 20 -22 q-17 3 -20 22"/>
+      <path d="M30 114 q-16 -4 -20 -22 q17 3 20 22 M30 114 q16 -4 20 -22 q-17 3 -20 22"/>
+    </g>
+  </svg>
+  <svg class="wheat wheat--l" viewBox="0 0 60 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke="#1B1B1B" stroke-width="3" stroke-linecap="round">
+      <path d="M30 155 L30 30"/>
+      <path d="M30 30 q-3 -14 0 -24 q3 10 0 24"/>
+      <path d="M30 45 q-16 -4 -20 -22 q17 3 20 22 M30 45 q16 -4 20 -22 q-17 3 -20 22"/>
+      <path d="M30 68 q-16 -4 -20 -22 q17 3 20 22 M30 68 q16 -4 20 -22 q-17 3 -20 22"/>
+      <path d="M30 91 q-16 -4 -20 -22 q17 3 20 22 M30 91 q16 -4 20 -22 q-17 3 -20 22"/>
+      <path d="M30 114 q-16 -4 -20 -22 q17 3 20 22 M30 114 q16 -4 20 -22 q-17 3 -20 22"/>
+    </g>
+  </svg>
   <div class="sticker sticker--a">חד־פעמי. או לא.</div>
   <div class="sticker sticker--b">100% נונסנס מקורי</div>
 
@@ -214,6 +254,30 @@
     שרגא
     <span>מאפין</span>
   </h1>
+
+  <svg class="hero__table" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke="#1B1B1B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <!-- פלטת השולחן -->
+      <rect x="20" y="18" width="560" height="18" rx="3" fill="#FFF6DE"/>
+      <!-- קווי עץ -->
+      <path d="M70 27 h90 M220 27 h60 M340 27 h110 M490 27 h50" stroke-width="2" opacity="0.5"/>
+      <!-- רגליים -->
+      <path d="M60 36 L48 112 M540 36 L552 112"/>
+      <path d="M120 36 L128 112 M480 36 L472 112"/>
+      <!-- קורת חיזוק -->
+      <path d="M85 80 L515 80" stroke-width="4"/>
+    </g>
+    <!-- מאפין קטן על קצה השולחן -->
+    <g fill="#FFF6DE" stroke="#1B1B1B" stroke-width="3.5" stroke-linejoin="round" transform="translate(72,-14)">
+      <path d="M0 26 q-9 0 -9 -8 q0 -7 6 -8 q1 -8 10 -8 q9 0 10 8 q6 1 6 8 q0 8 -9 8 z" fill="#FF4D9D"/>
+      <path d="M1 26 l-2.5 13 q0 3 8.5 3 q8.5 0 8.5 -3 l-2.5 -13"/>
+    </g>
+    <!-- קרואסון קטן בצד השני -->
+    <g fill="#FFF6DE" stroke="#1B1B1B" stroke-width="3.5" stroke-linejoin="round" transform="translate(478,-4) rotate(-8)">
+      <path d="M0 20 q18 -16 34 -3 q-5 3 -9 2 q3 5 -1 9 q-4 -1 -7 -5 q-1 6 -6 8 q-3 -5 -1 -9 q-6 2 -10 -2 z"/>
+    </g>
+  </svg>
+
 
   <p class="hero__sub">
     הופעת נונסנס שאף אחד לא יודע מה הולך לקרות בה.
